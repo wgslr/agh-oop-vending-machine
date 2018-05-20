@@ -1,9 +1,7 @@
 package agh.cs.lab.vending_machine;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Machine {
     CoinSlot slot;
@@ -25,6 +23,7 @@ public class Machine {
     }
 
     boolean pressButton(int id) {
+        if (id >= buttons.size()) return false;
         Product p = products.get(buttons.get(id).productId);
         if (productToReceive == null && p.price > slot.currentValue) {
             productToReceive = p;
