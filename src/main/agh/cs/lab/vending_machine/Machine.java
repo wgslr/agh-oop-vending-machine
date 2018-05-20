@@ -1,7 +1,7 @@
 package agh.cs.lab.vending_machine;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Machine {
     CoinSlot slot;
@@ -15,9 +15,11 @@ public class Machine {
         this.products = products;
         this.slot = slot;
 
-        buttons = products.stream()
-                .map((Product x) -> new Button(x.id, x.id))
-                .collect(Collectors.toList());
+        int idx = 0;
+        buttons = new ArrayList<>();
+        for (Product p : products) {
+            buttons.add(new Button(idx++, p.id));
+        }
 
         productToReceive = null;
     }
@@ -35,7 +37,8 @@ public class Machine {
     }
 
     void fillProduct(int id) {
-        products.get(id).fill();
+        if (id < products.size())
+            products.get(id).fill();
     }
 
     boolean insertCoint(double value) {
