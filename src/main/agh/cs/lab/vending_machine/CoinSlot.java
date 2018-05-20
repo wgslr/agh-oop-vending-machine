@@ -34,9 +34,13 @@ public class CoinSlot {
         if (coinsList.isEmpty()) {
             return false;
         } else {
-            coinsList.clear();
-            currentValue = 0;
+            empty();
             return true;
         }
+    }
+
+    void empty() {
+        coinsList.clear();
+        currentValue = 0;
     }
 }

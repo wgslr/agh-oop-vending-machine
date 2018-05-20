@@ -1,5 +1,9 @@
 package agh.cs.lab.vending_machine;
 
 public class Coin {
-    double value;
+    final double value;
+
+    public Coin(double value) {
+        this.value = value;
+    }
 }
