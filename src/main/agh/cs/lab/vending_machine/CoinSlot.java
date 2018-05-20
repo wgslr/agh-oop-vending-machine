@@ -14,9 +14,9 @@ public class CoinSlot {
 
     public CoinSlot(int coinsLimit) {
         this.coinsLimit = coinsLimit;
-        this.coinsList = new ArrayList<Coin>(coinsLimit);
+        this.coinsList = new ArrayList<>(coinsLimit);
         this.currentValue = 0;
-        filled = coinsLimit > 0;
+        filled = coinsLimit <= 0;
     }
 
     boolean insertCoin(Coin coin) {
