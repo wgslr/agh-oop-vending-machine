@@ -1,5 +1,6 @@
 package agh.cs.lab.vending_machine;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CoinSlot {
@@ -7,17 +8,35 @@ public class CoinSlot {
 
     double currentValue;
 
-    int coinsLimit;
+    final int coinsLimit;
 
     boolean filled;
 
+    public CoinSlot(int coinsLimit) {
+        this.coinsLimit = coinsLimit;
+        this.coinsList = new ArrayList<Coin>(coinsLimit);
+        this.currentValue = 0;
+        filled = coinsLimit > 0;
+    }
+
     boolean insertCoin(Coin coin) {
-        // TODO fill body
-        return false;
+        if (filled) {
+            return false;
+        } else {
+            coinsList.add(coin);
+            currentValue += coin.value;
+            filled = coinsList.size() == coinsLimit;
+            return true;
+        }
     }
 
     boolean returnCoins() {
-        // TODO fill body
-        return false;
+        if (coinsList.isEmpty()) {
+            return false;
+        } else {
+            coinsList.clear();
+            currentValue = 0;
+            return true;
+        }
     }
 }

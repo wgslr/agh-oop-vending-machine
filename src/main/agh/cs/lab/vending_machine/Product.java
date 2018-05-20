@@ -3,7 +3,7 @@ package agh.cs.lab.vending_machine;
 public class Product {
     int id;
 
-    String name;
+    final String name;
 
     double price;
 
@@ -11,14 +11,25 @@ public class Product {
 
     int counter;
 
+    public Product(int id, String name, double price, int limit) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.limit = limit;
+        this.counter = 0;
+    }
+
     boolean sell() {
-        // TODO fill body
-        return false;
+        if(counter > 0) {
+            --counter;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     void fill() {
-        // TODO fill body
-
+        counter = limit;
     }
 
 }
