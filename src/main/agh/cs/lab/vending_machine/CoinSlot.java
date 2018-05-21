@@ -21,6 +21,7 @@ public class CoinSlot {
 
     boolean insertCoin(Coin coin) {
         if (filled) {
+            System.out.println("The slot is filled");
             return false;
         } else {
             coinsList.add(coin);
@@ -32,6 +33,7 @@ public class CoinSlot {
 
     boolean returnCoins() {
         if (coinsList.isEmpty()) {
+            System.out.println("The slot is empty");
             return false;
         } else {
             empty();

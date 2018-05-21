@@ -24,6 +24,7 @@ public class Product {
             --counter;
             return true;
         } else {
+            System.out.printf("Not enough items %s", name);
             return false;
         }
     }

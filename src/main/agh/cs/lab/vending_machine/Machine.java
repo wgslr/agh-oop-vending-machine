@@ -25,7 +25,10 @@ public class Machine {
     }
 
     boolean pressButton(int id) {
-        if (id >= buttons.size()) return false;
+        if (id >= buttons.size()) {
+            System.out.println("No such button!");
+            return false;
+        }
         Button b = buttons.get(id);
         Product p = products.get(b.productId);
         if (productToReceive == null && p.price <= slot.currentValue) {
@@ -33,6 +36,7 @@ public class Machine {
             slot.empty();
             return true;
         } else {
+            System.out.println("Item not received or not enough money in the slot");
             return false;
         }
     }
@@ -44,6 +48,7 @@ public class Machine {
 
     boolean insertCoin(double value) {
         if (products.isEmpty()) {
+            System.out.println("No products in vending machine");
             return false;
         } else {
             return slot.insertCoin(new Coin(value));
@@ -52,6 +57,7 @@ public class Machine {
 
     boolean takeProduct() {
         if (productToReceive == null) {
+            System.out.println("No product to receive");
             return false;
         } else {
             productToReceive = null;
