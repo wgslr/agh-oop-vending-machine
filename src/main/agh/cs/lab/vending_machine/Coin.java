@@ -6,4 +6,12 @@ public class Coin {
     public Coin(double value) {
         this.value = value;
     }
+
+    double getValue() {
+        return value;
+    }
+
+    void setValue(double value) {
+        this.value = value;
+    }
 }
