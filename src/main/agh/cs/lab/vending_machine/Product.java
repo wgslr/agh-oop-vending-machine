@@ -12,7 +12,6 @@ public class Product {
     int counter;
 
     public Product(int id, String name, double price, int limit) {
-        System.out.println("Creating product with id " + id);
         this.id = id;
         this.name = name;
         this.price = price;
