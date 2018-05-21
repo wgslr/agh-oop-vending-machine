@@ -5,16 +5,23 @@ public class Button {
     /**
      * Button id
      */
-    int id;
+    private final int id;
 
     /**
      * Id of the Product associated with this Button.
      */
-    int productId;
+    private final int productId;
 
     public Button(int id, int productId) {
         this.productId = productId;
         this.id = id;
     }
 
+    public int getProductId() {
+        return productId;
+    }
+
+    public int getId() {
+        return id;
+    }
 }

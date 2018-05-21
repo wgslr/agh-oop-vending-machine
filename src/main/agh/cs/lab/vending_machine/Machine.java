@@ -30,7 +30,7 @@ public class Machine {
             return false;
         }
         Button b = buttons.get(id);
-        Product p = products.get(b.productId);
+        Product p = products.get(b.getProductId());
         if (productToReceive == null && p.price <= slot.currentValue) {
             productToReceive = p;
             slot.empty();
