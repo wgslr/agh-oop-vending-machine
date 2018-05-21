@@ -19,12 +19,12 @@ public class VendingMachineApplication {
             generated.add(next);
         }
         int idx = 0;
-        products.add(new Product(idx++, "espresso", 8.0, 8));        // 1
-        products.add(new Product(idx++, "latte", 5.99, 6));   // 2
-        products.add(new Product(idx++, "cappucino", 4.29, 8));   // 3
-        products.add(new Product(idx++, "water", 1.25, 10));      // 4
-        products.add(new Product(idx++, "tissues", 0.85, 20));    // 5
-        products.add(new Product(idx++, "mentoski", 2.34, 15));   // 6
+        products.add(new Product(idx++, "espresso", 8.0, 8));        // 0
+        products.add(new Product(idx++, "latte", 5.99, 6));   // 1
+        products.add(new Product(idx++, "cappucino", 4.29, 8));   // 2
+        products.add(new Product(idx++, "water", 1.25, 10));      // 3
+        products.add(new Product(idx++, "tissues", 0.85, 20));    // 4
+        products.add(new Product(idx++, "mentoski", 2.34, 15));   // 5
 
         machine = new Machine(products, new CoinSlot(2));
 
