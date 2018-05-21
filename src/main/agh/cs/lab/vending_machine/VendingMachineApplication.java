@@ -3,7 +3,7 @@ package agh.cs.lab.vending_machine;
 
 import java.util.*;
 
-public class VendingMachineREPL {
+public class VendingMachineApplication {
     static Machine machine;
 
     public static void main(String[] args) {
