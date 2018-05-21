@@ -41,6 +41,9 @@ public class VendingMachineApplication {
         printResult(machine.insertCoin(4), "Insert second coin");
         printResult(machine.insertCoin(1), "Insert third coin (expected failure)");
 
+        printResult(machine.pressButton(3), "Choose water");
+        printResult(machine.pressButton(3), "Choose water (expected failure)");
+
     }
 
     static void printResult(boolean result, String description) {
