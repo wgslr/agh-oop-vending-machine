@@ -10,8 +10,4 @@ public class Coin {
     double getValue() {
         return value;
     }
-
-    void setValue(double value) {
-        this.value = value;
-    }
 }
