@@ -26,8 +26,9 @@ public class Machine {
 
     boolean pressButton(int id) {
         if (id >= buttons.size()) return false;
-        Product p = products.get(buttons.get(id).productId);
-        if (productToReceive == null && p.price > slot.currentValue) {
+        Button b = buttons.get(id);
+        Product p = products.get(b.productId);
+        if (productToReceive == null && p.price <= slot.currentValue) {
             productToReceive = p;
             slot.empty();
             return true;
@@ -41,7 +42,7 @@ public class Machine {
             products.get(id).fill();
     }
 
-    boolean insertCoint(double value) {
+    boolean insertCoin(double value) {
         if (products.isEmpty()) {
             return false;
         } else {
@@ -49,7 +50,7 @@ public class Machine {
         }
     }
 
-    boolean takeProduct(int id) {
+    boolean takeProduct() {
         if (productToReceive == null) {
             return false;
         } else {

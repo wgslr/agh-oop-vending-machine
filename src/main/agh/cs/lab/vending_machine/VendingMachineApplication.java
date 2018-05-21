@@ -2,6 +2,7 @@ package agh.cs.lab.vending_machine;
 
 
 import java.util.*;
+import java.util.function.Supplier;
 
 public class VendingMachineApplication {
     static Machine machine;
@@ -17,19 +18,37 @@ public class VendingMachineApplication {
             Integer next = rng.nextInt(2137) + 1;
             generated.add(next);
         }
-        Iterator<Integer> iterator = generated.iterator();
-        products.add(new Product(iterator.next(), "mamba", 8.0, 8));        // 1
-        products.add(new Product(iterator.next(), "monsterek", 5.99, 6));   // 2
-        products.add(new Product(iterator.next(), "paluszkis", 4.29, 8));   // 3
-        products.add(new Product(iterator.next(), "water", 1.25, 10));      // 4
-        products.add(new Product(iterator.next(), "tissues", 0.85, 20));    // 5
-        products.add(new Product(iterator.next(), "mentoski", 2.34, 15));   // 6
+        int idx = 0;
+        products.add(new Product(idx++, "mamba", 8.0, 8));        // 1
+        products.add(new Product(idx++, "monsterek", 5.99, 6));   // 2
+        products.add(new Product(idx++, "paluszkis", 4.29, 8));   // 3
+        products.add(new Product(idx++, "water", 1.25, 10));      // 4
+        products.add(new Product(idx++, "tissues", 0.85, 20));    // 5
+        products.add(new Product(idx++, "mentoski", 2.34, 15));   // 6
 
         machine = new Machine(products, new CoinSlot(2));
+
+        test();
     }
 
-    void repl() {
+    static void test() {
+        printResult(machine.insertCoin(8), "Insert first coin");
+        printResult(machine.takeProduct(), "Take product (expected failure)");
+        printResult(machine.pressButton(2), "Choose paluszki");
+        printResult(machine.takeProduct(), "Take product");
 
+        printResult(machine.insertCoin(2), "Insert first coin");
+        printResult(machine.insertCoin(4), "Insert second coin");
+        printResult(machine.insertCoin(1), "Insert third coin (expected failure)");
+
+    }
+
+    static void printResult(boolean result, String description) {
+        if(result) {
+            System.out.println("Action " + description + " succesfull");
+        } else {
+            System.out.println("Action " + description + " failed");
+        }
     }
 
 }
